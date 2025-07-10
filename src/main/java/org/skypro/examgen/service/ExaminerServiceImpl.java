@@ -7,26 +7,26 @@ import java.util.*;
 
 @Service
 public class ExaminerServiceImpl implements ExaminerService {
-    private final JavaQuestionService javaQuestionService;
+    private final QuestionService QuestionService;
 
-    public ExaminerServiceImpl(JavaQuestionService javaQuestionService) {
-        this.javaQuestionService = javaQuestionService;
+    public ExaminerServiceImpl(QuestionService QuestionService) {
+        this.QuestionService = QuestionService;
     }
 
     @Override
     public Collection<Question> getQuestions(int amount) {
-        if (amount > javaQuestionService.getAll().size()) {
+        if (amount > QuestionService.getAll().size()) {
             throw new NotEnoughQuestionsException("Requested amount exceeds available questions");
         }
         Set<Question> result = new HashSet<>();
         while (result.size() < amount) {
-            result.add(javaQuestionService.getRandomQuestion());
+            result.add(QuestionService.getRandomQuestion());
         }
         return result;
     }
 
     @Override
     public int getAllQuestionsCount() {
-        return javaQuestionService.getAll().size(); // Добавьте этот метод
+        return QuestionService.getAll().size();
     }
 }

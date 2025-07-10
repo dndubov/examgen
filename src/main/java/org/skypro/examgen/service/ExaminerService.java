@@ -5,7 +5,7 @@ import java.util.Collection;
 
 public interface ExaminerService {
     Collection<Question> getQuestions(int amount);
-    int getAllQuestionsCount(); // Добавьте эту строку
+    int getAllQuestionsCount();
 }
 
 

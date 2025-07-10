@@ -1,7 +1,7 @@
 package org.skypro.examgen.controller;
 
 import org.skypro.examgen.model.Question;
-import org.skypro.examgen.service.JavaQuestionService;
+import org.skypro.examgen.service.QuestionService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -9,9 +9,9 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/exam/java")
 public class JavaQuestionController {
-    private final JavaQuestionService questionService;
+    private final QuestionService questionService;
 
-    public JavaQuestionController(JavaQuestionService questionService) {
+    public JavaQuestionController(QuestionService questionService) {
         this.questionService = questionService;
     }
 
